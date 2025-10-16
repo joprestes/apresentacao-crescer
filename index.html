@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Da Automação à Qualidade Contínua</title>
+    <title>Da Automação à Qualidade Contínua - Apresentação sobre Git, GitHub Actions e SonarQube para QAs</title>
     <style>
         body {
             box-sizing: border-box;
@@ -36,37 +36,47 @@
             justify-content: center;
             position: relative;
             overflow-y: auto;
+            border: 2px solid transparent;
         }
 
         .slide.active {
             display: flex;
         }
 
+        .slide:focus {
+            outline: none;
+            border-color: #2b6cb0;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3), 0 0 0 3px rgba(43, 108, 176, 0.3);
+        }
+
         .slide h1 {
             font-size: 3.5rem;
-            color: #2d3748;
+            color: #1a202c;
             margin-bottom: 20px;
             text-align: center;
             line-height: 1.2;
+            font-weight: 700;
         }
 
         .slide h2 {
             font-size: 2.8rem;
-            color: #4a5568;
+            color: #2d3748;
             margin-bottom: 30px;
             text-align: center;
+            font-weight: 600;
         }
 
         .slide h3 {
             font-size: 2.2rem;
-            color: #667eea;
+            color: #2b6cb0;
             margin-bottom: 25px;
+            font-weight: 600;
         }
 
         .slide p {
             font-size: 1.4rem;
             line-height: 1.6;
-            color: #4a5568;
+            color: #2d3748;
             margin-bottom: 20px;
         }
 
@@ -140,9 +150,10 @@
         }
 
         .tool-card h4 {
-            color: #667eea;
+            color: #2b6cb0;
             font-size: 1.4rem;
             margin-bottom: 10px;
+            font-weight: 600;
         }
 
         .branches-list {
@@ -236,14 +247,14 @@
         }
 
         .nav-btn {
-            background: rgba(255,255,255,0.9);
-            border: none;
+            background: rgba(255,255,255,0.95);
+            border: 2px solid transparent;
             padding: 15px 25px;
             border-radius: 50px;
             cursor: pointer;
             font-size: 1rem;
             font-weight: 600;
-            color: #4a5568;
+            color: #2d3748;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
         }
@@ -252,11 +263,19 @@
             background: white;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border-color: #2b6cb0;
+        }
+
+        .nav-btn:focus {
+            outline: none;
+            border-color: #2b6cb0;
+            box-shadow: 0 0 0 3px rgba(43, 108, 176, 0.3);
         }
 
         .nav-btn:disabled {
-            opacity: 0.5;
+            opacity: 0.6;
             cursor: not-allowed;
+            background: rgba(255,255,255,0.7);
         }
 
         .slide-counter {
@@ -342,9 +361,9 @@
     </style>
 </head>
 <body>
-    <div class="presentation-container">
-        <div class="slide-counter">
-            <span id="current-slide">1</span> / <span id="total-slides">20</span>
+    <main class="presentation-container">
+        <div class="slide-counter" aria-live="polite">
+            <span id="current-slide">1</span> / <span id="total-slides">28</span>
         </div>
 
         <!-- Slide 1 -->
@@ -434,7 +453,16 @@
                 <li>Habilita code review eficiente entre QAs e desenvolvedores</li>
             </ul>
 
-            <h3>Impacto na qualidade:</h3>
+            <div class="central-message">
+                Git não é só para desenvolvedores — é a base da qualidade rastreável.
+            </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="slide">
+            <h2>Impacto do Git na qualidade</h2>
+
+            <h3>Três pilares fundamentais:</h3>
             <div class="tools-grid">
                 <div class="tool-card">
                     <h4>📈 Rastreabilidade</h4>
@@ -463,7 +491,7 @@
             </div>
         </div>
 
-        <!-- Slide 5 -->
+        <!-- Slide 6 -->
         <div class="slide">
             <h2>Branches e convenções</h2>
             
@@ -495,7 +523,7 @@
             </div>
         </div>
 
-        <!-- Slide 6 -->
+        <!-- Slide 7 -->
         <div class="slide">
             <h2>Branches de release</h2>
             
@@ -510,6 +538,15 @@
                 <li>Facilitar deploy gradual (staging → produção)</li>
                 <li>Manter histórico de versões entregues</li>
             </ul>
+
+            <div class="central-message">
+                Release branches = controle total sobre o que vai para produção.
+            </div>
+        </div>
+
+        <!-- Slide 8 -->
+        <div class="slide">
+            <h2>Fluxo de release branches</h2>
 
             <h3>Fluxo de trabalho:</h3>
             <div class="workflow-steps">
@@ -534,7 +571,7 @@
             </div>
         </div>
 
-        <!-- Slide 7 -->
+        <!-- Slide 9 -->
         <div class="slide">
             <h2>Commits semânticos e Pull Requests</h2>
             
@@ -561,7 +598,7 @@
             </div>
         </div>
 
-        <!-- Slide 8 -->
+        <!-- Slide 10 -->
         <div class="slide">
             <h2>Módulo 2</h2>
             <h1>GitHub Actions — Automação e Entrega Contínua</h1>
@@ -570,7 +607,7 @@
             O QA participa ativamente na criação e execução desses fluxos.</p>
         </div>
 
-        <!-- Slide 9 -->
+        <!-- Slide 11 -->
         <div class="slide">
             <h2>Estrutura do Workflow</h2>
             
@@ -611,8 +648,13 @@
                     • URLs de APIs</p>
                 </div>
             </div>
+        </div>
 
-            <h3>Fluxo típico de QA:</h3>
+        <!-- Slide 12 -->
+        <div class="slide">
+            <h2>Fluxo típico de QA</h2>
+
+            <h3>Pipeline completo:</h3>
             <div class="workflow-steps">
                 <div class="workflow-step">Checkout código</div>
                 <div class="workflow-step">Setup ambiente</div>
@@ -628,7 +670,7 @@
             </div>
         </div>
 
-        <!-- Slide 10 -->
+        <!-- Slide 13 -->
         <div class="slide">
             <h2>Execução por tags</h2>
             
@@ -670,6 +712,11 @@
                     Debug e desenvolvimento</p>
                 </div>
             </div>
+        </div>
+
+        <!-- Slide 14 -->
+        <div class="slide">
+            <h2>Benefícios da execução por tags</h2>
 
             <ul class="benefits-list">
                 <li>Feedback rápido para desenvolvedores (smoke em 5 min)</li>
@@ -684,7 +731,7 @@
             </div>
         </div>
 
-        <!-- Slide 11 -->
+        <!-- Slide 15 -->
         <div class="slide">
             <h2>Publicação de relatórios</h2>
             
@@ -714,7 +761,7 @@
             </div>
         </div>
 
-        <!-- Slide 12 -->
+        <!-- Slide 16 -->
         <div class="slide">
             <h2>Boas práticas e depuração</h2>
             
@@ -735,7 +782,7 @@
             </div>
         </div>
 
-        <!-- Slide 13 -->
+        <!-- Slide 17 -->
         <div class="slide">
             <h2>Módulo 3</h2>
             <h1>SonarQube — Qualidade Contínua Além dos Testes</h1>
@@ -744,7 +791,7 @@
             Complementa os testes ao medir o que eles não veem: estrutura, segurança e manutenibilidade.</p>
         </div>
 
-        <!-- Slide 14 -->
+        <!-- Slide 18 -->
         <div class="slide">
             <h2>O que é análise estática</h2>
             
@@ -785,8 +832,13 @@
                     • Tendências ao longo do tempo</p>
                 </div>
             </div>
+        </div>
 
-            <h3>Benefícios para o QA:</h3>
+        <!-- Slide 19 -->
+        <div class="slide">
+            <h2>Benefícios do SonarQube para QA</h2>
+
+            <h3>Vantagens para o QA:</h3>
             <ul class="benefits-list">
                 <li>Detecção precoce de problemas antes dos testes manuais</li>
                 <li>Priorização de áreas de risco para foco nos testes</li>
@@ -800,7 +852,7 @@
             </div>
         </div>
 
-        <!-- Slide 15 -->
+        <!-- Slide 20 -->
         <div class="slide">
             <h2>Quality Gate e métricas</h2>
             
@@ -819,7 +871,7 @@
             </div>
         </div>
 
-        <!-- Slide 16 -->
+        <!-- Slide 21 -->
         <div class="slide">
             <h2>Interpretação e ação</h2>
             
@@ -850,7 +902,7 @@
             </div>
         </div>
 
-        <!-- Slide 17 -->
+        <!-- Slide 22 -->
         <div class="slide">
             <h2>Integração entre ferramentas</h2>
             
@@ -881,7 +933,7 @@
             </div>
         </div>
 
-        <!-- Slide 18 -->
+        <!-- Slide 23 -->
         <div class="slide">
             <h2>O papel do QA moderno</h2>
             
@@ -908,7 +960,95 @@
             </div>
         </div>
 
-        <!-- Slide 19 -->
+        <!-- Slide 24 -->
+        <div class="slide">
+            <h2>Resumo dos módulos</h2>
+            
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <h4>🔧 Módulo 1: Git</h4>
+                    <p><strong>Controle e rastreabilidade</strong><br>
+                    • Versionamento inteligente<br>
+                    • Branches organizadas<br>
+                    • Commits semânticos<br>
+                    • Colaboração eficiente</p>
+                </div>
+                <div class="tool-card">
+                    <h4>⚡ Módulo 2: GitHub Actions</h4>
+                    <p><strong>Automação e CI/CD</strong><br>
+                    • Workflows automatizados<br>
+                    • Execução por tags<br>
+                    • Relatórios publicados<br>
+                    • Feedback contínuo</p>
+                </div>
+                <div class="tool-card">
+                    <h4>📊 Módulo 3: SonarQube</h4>
+                    <p><strong>Qualidade e métricas</strong><br>
+                    • Análise estática<br>
+                    • Quality Gates<br>
+                    • Detecção de riscos<br>
+                    • Melhoria contínua</p>
+                </div>
+            </div>
+
+            <div class="central-message">
+                Três ferramentas, um objetivo: qualidade integrada e sustentável.
+            </div>
+        </div>
+
+        <!-- Slide 25 -->
+        <div class="slide">
+            <h2>Próximos passos</h2>
+            
+            <h3>Para implementar na sua equipe:</h3>
+            <ul class="benefits-list">
+                <li>Comece com Git: padronize commits e branches</li>
+                <li>Implemente CI/CD básico com GitHub Actions</li>
+                <li>Adicione análise de qualidade com SonarQube</li>
+                <li>Treine a equipe nas três ferramentas</li>
+                <li>Meça e melhore continuamente os processos</li>
+            </ul>
+
+            <div class="central-message">
+                <strong>Lembre-se:</strong> A transformação é gradual.<br>
+                Comece pequeno, mas comece hoje!
+            </div>
+        </div>
+
+        <!-- Slide 26 -->
+        <div class="slide">
+            <h2>Recursos para aprofundamento</h2>
+            
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <h4>📚 Git</h4>
+                    <p>• Pro Git (livro gratuito)<br>
+                    • Git Flow workflow<br>
+                    • Conventional Commits<br>
+                    • GitHub Learning Lab</p>
+                </div>
+                <div class="tool-card">
+                    <h4>🔧 GitHub Actions</h4>
+                    <p>• GitHub Actions Marketplace<br>
+                    • Workflow syntax documentation<br>
+                    • Actions for testing frameworks<br>
+                    • CI/CD best practices</p>
+                </div>
+                <div class="tool-card">
+                    <h4>📊 SonarQube</h4>
+                    <p>• SonarQube documentation<br>
+                    • Quality Gate configuration<br>
+                    • Rules and metrics guide<br>
+                    • Integration tutorials</p>
+                </div>
+            </div>
+
+            <div class="central-message">
+                Continue aprendendo e compartilhando conhecimento com a comunidade QA!
+            </div>
+        </div>
+
+        <!-- Slide 27 -->
         <div class="slide">
             <h2>Encerramento</h2>
             
@@ -925,7 +1065,7 @@
             </div>
         </div>
 
-        <!-- Slide 20 -->
+        <!-- Slide 28 -->
         <div class="slide">
             <h1>Créditos</h1>
             
@@ -933,8 +1073,6 @@
                 <strong>Autores:</strong> Joelma Prestes Ferreira & Marcelo Feiteiro<br>
                 <strong>Projeto:</strong> Crescer – Qualidade de Software
             </div>
-
-
 
             <div class="central-message">
                 Obrigado pela atenção! 🚀<br>
@@ -993,5 +1131,5 @@
         // Initialize
         showSlide(0);
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98f49c205631f1bb',t:'MTc2MDU4NjgxMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98f4a9b73580f1bb',t:'MTc2MDU4NzM3MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
