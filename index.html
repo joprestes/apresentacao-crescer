@@ -369,26 +369,39 @@
             
             <p>O QA deixou de ser o último elo da cadeia.<br>
             Hoje participa do ciclo inteiro:<br>
-            <strong>Versionamento → Automação → Análise Contínua</strong></p>
+            <strong>Versionamento → Automação → Análise Contínua → Feedback → Melhoria</strong></p>
 
-            <h3>Ferramentas centrais:</h3>
+            <h3>Ferramentas centrais e seus papéis:</h3>
             
             <div class="tools-grid">
                 <div class="tool-card">
                     <h4>🔧 Git</h4>
-                    <p>Controle e rastreabilidade</p>
+                    <p><strong>Controle e rastreabilidade</strong><br>
+                    • Histórico completo de mudanças<br>
+                    • Colaboração segura entre equipes<br>
+                    • Branching strategies para organização<br>
+                    • Rollback seguro quando necessário</p>
                 </div>
                 <div class="tool-card">
                     <h4>⚡ GitHub Actions</h4>
-                    <p>Automação e integração</p>
+                    <p><strong>Automação e integração</strong><br>
+                    • CI/CD automatizado<br>
+                    • Execução de testes em paralelo<br>
+                    • Deploy automático por ambiente<br>
+                    • Notificações e relatórios em tempo real</p>
                 </div>
                 <div class="tool-card">
                     <h4>📊 SonarQube</h4>
-                    <p>Qualidade e melhoria contínua</p>
+                    <p><strong>Qualidade e melhoria contínua</strong><br>
+                    • Análise estática de código<br>
+                    • Detecção de vulnerabilidades<br>
+                    • Métricas de cobertura de testes<br>
+                    • Quality Gates para aprovação</p>
                 </div>
             </div>
 
             <div class="central-message">
+                <strong>Resultado:</strong> Qualidade integrada desde o primeiro commit até a produção.<br>
                 Essas três ferramentas conectam pessoas, código e cultura de qualidade.
             </div>
         </div>
@@ -413,18 +426,40 @@
             <p><strong>Git é rastreabilidade, não apenas versionamento.</strong></p>
             
             <ul class="benefits-list">
-                <li>Cada commit revela intenção e contexto</li>
+                <li>Cada commit revela intenção e contexto das mudanças</li>
                 <li>Controlar código de testes é garantir histórico e confiabilidade</li>
+                <li>Facilita debugging ao identificar quando bugs foram introduzidos</li>
+                <li>Permite rollback seguro de funcionalidades problemáticas</li>
+                <li>Documenta evolução dos testes automatizados</li>
+                <li>Habilita code review eficiente entre QAs e desenvolvedores</li>
             </ul>
 
-            <h3>Exemplo:</h3>
+            <h3>Impacto na qualidade:</h3>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <h4>📈 Rastreabilidade</h4>
+                    <p>Cada mudança tem autor, data e justificativa</p>
+                </div>
+                <div class="tool-card">
+                    <h4>🔄 Reversibilidade</h4>
+                    <p>Desfazer mudanças sem perder trabalho</p>
+                </div>
+                <div class="tool-card">
+                    <h4>🤝 Colaboração</h4>
+                    <p>Múltiplos QAs trabalhando simultaneamente</p>
+                </div>
+            </div>
+
+            <h3>Exemplo de commits:</h3>
             
             <div class="example-box">
                 <strong>❌ fix tests</strong> → genérico e sem contexto
             </div>
             
             <div class="example-box example-good">
-                <strong>✅ test: adiciona validação de login com @smoke</strong> → claro e auditável
+                <strong>✅ test: adiciona validação de login com @smoke</strong> → claro e auditável<br>
+                <strong>✅ fix: corrige timeout em teste de API de pagamento</strong> → específico<br>
+                <strong>✅ feat: implementa teste E2E para fluxo de checkout</strong> → descritivo
             </div>
         </div>
 
@@ -464,23 +499,38 @@
         <div class="slide">
             <h2>Branches de release</h2>
             
-            <p>Branches de release representam o código pronto para validação.</p>
+            <p>Branches de release representam o código pronto para validação e entrega.</p>
 
             <h3>Servem para:</h3>
             <ul class="benefits-list">
-                <li>Congelar o código que será entregue</li>
-                <li>Aplicar apenas correções críticas</li>
-                <li>Testar integração e regressão sem afetar o desenvolvimento ativo</li>
+                <li>Congelar o código que será entregue (feature freeze)</li>
+                <li>Aplicar apenas correções críticas (hotfixes)</li>
+                <li>Testar integração e regressão sem afetar desenvolvimento ativo</li>
+                <li>Permitir que desenvolvedores continuem trabalhando em novas features</li>
+                <li>Facilitar deploy gradual (staging → produção)</li>
+                <li>Manter histórico de versões entregues</li>
             </ul>
 
-            <h3>Exemplos:</h3>
+            <h3>Fluxo de trabalho:</h3>
+            <div class="workflow-steps">
+                <div class="workflow-step">Criar release branch</div>
+                <div class="workflow-step">Testes de regressão</div>
+                <div class="workflow-step">Correções críticas</div>
+                <div class="workflow-step">Deploy produção</div>
+                <div class="workflow-step">Merge para main</div>
+            </div>
+
+            <h3>Exemplos práticos:</h3>
             <div class="example-box example-good">
                 <strong>release/1.5.0</strong> → versão candidata da release 1.5<br>
-                <strong>release/hml-2025-10</strong> → branch temporária para homologação
+                <strong>release/hml-2025-10</strong> → branch temporária para homologação<br>
+                <strong>release/sprint-42</strong> → entrega do sprint 42<br>
+                <strong>hotfix/critical-security-fix</strong> → correção urgente de segurança
             </div>
 
             <div class="central-message">
-                Benefício: previsibilidade no pipeline e clareza de estágios.
+                <strong>Benefício:</strong> Previsibilidade no pipeline, clareza de estágios e deploy seguro.<br>
+                O QA tem controle total sobre o que será testado e entregue.
             </div>
         </div>
 
@@ -524,31 +574,57 @@
         <div class="slide">
             <h2>Estrutura do Workflow</h2>
             
-            <p>O arquivo <strong>.yml</strong> define o pipeline de CI/CD.</p>
+            <p>O arquivo <strong>.yml</strong> define o pipeline de CI/CD completo.</p>
 
-            <h3>Principais blocos:</h3>
+            <h3>Principais blocos e configurações:</h3>
             <div class="tools-grid">
                 <div class="tool-card">
-                    <h4>on:</h4>
-                    <p>quando o fluxo é disparado</p>
+                    <h4>on: (Triggers)</h4>
+                    <p><strong>Quando o fluxo é disparado</strong><br>
+                    • push, pull_request<br>
+                    • schedule (cron jobs)<br>
+                    • workflow_dispatch (manual)<br>
+                    • release, issues</p>
                 </div>
                 <div class="tool-card">
-                    <h4>jobs:</h4>
-                    <p>o que será executado</p>
+                    <h4>jobs: (Trabalhos)</h4>
+                    <p><strong>O que será executado</strong><br>
+                    • Execução paralela ou sequencial<br>
+                    • Diferentes sistemas operacionais<br>
+                    • Dependências entre jobs<br>
+                    • Estratégias de matriz</p>
                 </div>
                 <div class="tool-card">
-                    <h4>steps:</h4>
-                    <p>sequência de comandos</p>
+                    <h4>steps: (Passos)</h4>
+                    <p><strong>Sequência de comandos</strong><br>
+                    • Actions do marketplace<br>
+                    • Comandos shell customizados<br>
+                    • Condicionais (if:)<br>
+                    • Variáveis de ambiente</p>
+                </div>
+                <div class="tool-card">
+                    <h4>env: (Ambiente)</h4>
+                    <p><strong>Variáveis e configurações</strong><br>
+                    • Secrets seguros<br>
+                    • Configurações por ambiente<br>
+                    • Tokens de acesso<br>
+                    • URLs de APIs</p>
                 </div>
             </div>
 
-            <h3>Fluxo visual:</h3>
+            <h3>Fluxo típico de QA:</h3>
             <div class="workflow-steps">
-                <div class="workflow-step">Checkout</div>
-                <div class="workflow-step">Instalar Node</div>
-                <div class="workflow-step">Rodar testes</div>
-                <div class="workflow-step">Gerar relatório</div>
-                <div class="workflow-step">Deploy</div>
+                <div class="workflow-step">Checkout código</div>
+                <div class="workflow-step">Setup ambiente</div>
+                <div class="workflow-step">Instalar dependências</div>
+                <div class="workflow-step">Executar testes</div>
+                <div class="workflow-step">Análise SonarQube</div>
+                <div class="workflow-step">Gerar relatórios</div>
+                <div class="workflow-step">Deploy/Publicar</div>
+            </div>
+
+            <div class="central-message">
+                <strong>Benefício:</strong> Automação completa do ciclo de qualidade, desde o commit até a entrega.
             </div>
         </div>
 
@@ -556,22 +632,55 @@
         <div class="slide">
             <h2>Execução por tags</h2>
             
-            <p>Permite rodar testes específicos, otimizando o tempo de execução.</p>
+            <p>Permite rodar testes específicos, otimizando tempo de execução e recursos.</p>
 
-            <h3>Exemplo:</h3>
+            <h3>Estratégias de tagueamento:</h3>
             <div class="tags-demo">
                 <span class="tag">@smoke</span>
                 <span class="tag">@regression</span>
                 <span class="tag">@api</span>
+                <span class="tag">@e2e</span>
+                <span class="tag">@critical</span>
+            </div>
+
+            <h3>Cenários de uso:</h3>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <h4>🚀 Deploy rápido</h4>
+                    <p><strong>@smoke</strong><br>
+                    Testes essenciais (5-10 min)<br>
+                    Validação básica de funcionalidades críticas</p>
+                </div>
+                <div class="tool-card">
+                    <h4>🔄 Regressão completa</h4>
+                    <p><strong>@regression</strong><br>
+                    Suite completa (30-60 min)<br>
+                    Execução noturna ou em releases</p>
+                </div>
+                <div class="tool-card">
+                    <h4>⚡ Testes de API</h4>
+                    <p><strong>@api</strong><br>
+                    Validação de contratos (10-15 min)<br>
+                    Execução a cada push</p>
+                </div>
+                <div class="tool-card">
+                    <h4>🎯 Funcionalidade específica</h4>
+                    <p><strong>@login, @payment</strong><br>
+                    Testes focados por feature<br>
+                    Debug e desenvolvimento</p>
+                </div>
             </div>
 
             <ul class="benefits-list">
-                <li>Foco, velocidade e controle granular</li>
-                <li>Executar manualmente workflows no GitHub usando tags personalizadas</li>
+                <li>Feedback rápido para desenvolvedores (smoke em 5 min)</li>
+                <li>Otimização de recursos de CI/CD</li>
+                <li>Execução manual de workflows específicos no GitHub</li>
+                <li>Paralelização inteligente de testes</li>
+                <li>Estratégia de testes por ambiente (dev, staging, prod)</li>
             </ul>
 
             <div class="central-message">
-                Benefício: foco, velocidade e controle granular.
+                <strong>Resultado:</strong> Ciclo de feedback otimizado - do commit ao deploy em minutos, não horas.
             </div>
         </div>
 
@@ -639,30 +748,55 @@
         <div class="slide">
             <h2>O que é análise estática</h2>
             
-            <p><strong>Analisa código sem executá-lo.</strong></p>
+            <p><strong>Analisa código sem executá-lo, identificando problemas estruturais e de qualidade.</strong></p>
 
-            <h3>Identifica:</h3>
+            <h3>Categorias de problemas identificados:</h3>
             <div class="tools-grid">
                 <div class="tool-card">
                     <h4>🐛 Bugs</h4>
-                    <p>Problemas no código</p>
+                    <p><strong>Problemas funcionais</strong><br>
+                    • Null pointer exceptions<br>
+                    • Loops infinitos<br>
+                    • Condições sempre falsas<br>
+                    • Recursos não liberados</p>
                 </div>
                 <div class="tool-card">
                     <h4>🔒 Vulnerabilidades</h4>
-                    <p>Riscos de segurança</p>
+                    <p><strong>Riscos de segurança</strong><br>
+                    • SQL Injection<br>
+                    • Cross-Site Scripting (XSS)<br>
+                    • Senhas hardcoded<br>
+                    • Validação insuficiente</p>
                 </div>
                 <div class="tool-card">
                     <h4>💨 Code Smells</h4>
-                    <p>Problemas de manutenibilidade</p>
+                    <p><strong>Problemas de manutenibilidade</strong><br>
+                    • Métodos muito longos<br>
+                    • Código duplicado<br>
+                    • Complexidade ciclomática alta<br>
+                    • Nomes não descritivos</p>
                 </div>
                 <div class="tool-card">
                     <h4>📊 Cobertura de testes</h4>
-                    <p>Percentual testado</p>
+                    <p><strong>Métricas de qualidade</strong><br>
+                    • Linhas cobertas por testes<br>
+                    • Branches testadas<br>
+                    • Funções sem cobertura<br>
+                    • Tendências ao longo do tempo</p>
                 </div>
             </div>
 
+            <h3>Benefícios para o QA:</h3>
+            <ul class="benefits-list">
+                <li>Detecção precoce de problemas antes dos testes manuais</li>
+                <li>Priorização de áreas de risco para foco nos testes</li>
+                <li>Métricas objetivas para discussão com desenvolvedores</li>
+                <li>Histórico de evolução da qualidade do código</li>
+            </ul>
+
             <div class="central-message">
-                Analogia: O Sonar é o check-up preventivo do código.
+                <strong>Analogia:</strong> O SonarQube é o check-up preventivo do código.<br>
+                Identifica problemas antes que se tornem bugs em produção.
             </div>
         </div>
 
@@ -845,7 +979,7 @@
             }
         }
 
-        // Keyboard navigation.
+        // Keyboard navigation
         document.addEventListener('keydown', function(e) {
             if (e.key === 'ArrowRight' || e.key === ' ') {
                 e.preventDefault();
@@ -859,5 +993,5 @@
         // Initialize
         showSlide(0);
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98f483d25369f1bb',t:'MTc2MDU4NTgxOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98f49c205631f1bb',t:'MTc2MDU4NjgxMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
